@@ -71,13 +71,21 @@ class JsonWebTokenHeader
             throw $exception;
         }
 
-        if(!empty($cacheKey))
-            $cache_cert_store = apcu_fetch($cacheKey);
-        if($cache_cert_store ==false ){
-            $cache_cert_store="";
-            $result = apcu_store("$cacheKey", $cert_store);
-            $cache_cert_store = apcu_fetch($cacheKey);
+        if (function_exists('apcu_fetch') && filter_var(ini_get('apc.enabled'), FILTER_VALIDATE_BOOLEAN)) {
+            if (!empty($cacheKey)) {
+                $cache_cert_store = apcu_fetch($cacheKey);
+            }
+
+            if ($cache_cert_store ==false ) {
+                $cache_cert_store="";
+                $result = apcu_store("$cacheKey", $cert_store);
+                $cache_cert_store = apcu_fetch($cacheKey);
+            }
         }
+        else {
+            $cache_cert_store = $cert_store;
+        }
+        
         //read the certificate from cert obj    
         if (openssl_pkcs12_read($cache_cert_store, $cert_info, $keyPass)) 
         {

@@ -9,14 +9,12 @@ The CyberSource PHP client provides convenient access to the [CyberSource REST A
 * Enable cURL PHP Extension
 * Enable JSON PHP Extension
 * Enable MBString PHP Extension
-* Enable PHP_APCU PHP Extension. You will need to download it for your platform (Windows/Linux/Mac)
 * [CyberSource Account](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html)
 * [CyberSource API Keys](https://prod.developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration/createCertSharedKey.html)
 
  ## Dependencies
 * PHP-JWT                          : JWT token Generation
 * CURL                             : Http communication with the payment gateway
-* PHP_APCU                         : Caching
 * phpunit-5.7.25                   : unit testing
 * phpunit-5.7.25 code coverage     : Sonar coverage
 
