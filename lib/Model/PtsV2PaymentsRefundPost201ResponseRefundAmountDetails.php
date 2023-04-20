@@ -55,6 +55,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
       */
     protected static $swaggerTypes = [
         'refundAmount' => 'string',
+        'creditAmount' => 'string',
         'currency' => 'string'
     ];
 
@@ -64,6 +65,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
       */
     protected static $swaggerFormats = [
         'refundAmount' => null,
+        'creditAmount' => null,
         'currency' => null
     ];
 
@@ -83,6 +85,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      */
     protected static $attributeMap = [
         'refundAmount' => 'refundAmount',
+        'creditAmount' => 'creditAmount',
         'currency' => 'currency'
     ];
 
@@ -93,6 +96,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      */
     protected static $setters = [
         'refundAmount' => 'setRefundAmount',
+        'creditAmount' => 'setCreditAmount',
         'currency' => 'setCurrency'
     ];
 
@@ -103,6 +107,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      */
     protected static $getters = [
         'refundAmount' => 'getRefundAmount',
+        'creditAmount' => 'getCreditAmount',
         'currency' => 'getCurrency'
     ];
 
@@ -138,6 +143,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['refundAmount'] = isset($data['refundAmount']) ? $data['refundAmount'] : null;
+        $this->container['creditAmount'] = isset($data['creditAmount']) ? $data['creditAmount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     }
 
@@ -182,8 +188,28 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      */
     public function setRefundAmount($refundAmount)
     {
-
         $this->container['refundAmount'] = $refundAmount;
+
+        return $this;
+    }
+
+    /**
+     * Gets creditAmount
+     * @return string
+     */
+    public function getCreditAmount()
+    {
+        return $this->container['creditAmount'];
+    }
+
+    /**
+     * Sets creditAmount
+     * @param string $creditAmount Amount that was credited to the cardholder’s account.  Returned by PIN debit credit.
+     * @return $this
+     */
+    public function setCreditAmount($creditAmount)
+    {
+        $this->container['creditAmount'] = $creditAmount;
 
         return $this;
     }
@@ -204,7 +230,6 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      */
     public function setCurrency($currency)
     {
-
         $this->container['currency'] = $currency;
 
         return $this;
@@ -214,6 +239,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      * @param  integer $offset Offset
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -224,6 +250,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      * @param  integer $offset Offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -235,6 +262,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      * @param  mixed   $value  Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -249,6 +277,7 @@ class PtsV2PaymentsRefundPost201ResponseRefundAmountDetails implements ArrayAcce
      * @param  integer $offset Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

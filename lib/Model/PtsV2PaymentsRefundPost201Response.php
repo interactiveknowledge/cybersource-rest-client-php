@@ -59,7 +59,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
         'submitTimeUtc' => 'string',
         'status' => 'string',
         'reconciliationId' => 'string',
-        'clientReferenceInformation' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseClientReferenceInformation',
+        'clientReferenceInformation' => '\CyberSource\Model\PtsV2PaymentsRefundPost201ResponseClientReferenceInformation',
         'refundAmountDetails' => '\CyberSource\Model\PtsV2PaymentsRefundPost201ResponseRefundAmountDetails',
         'processorInformation' => '\CyberSource\Model\PtsV2PaymentsRefundPost201ResponseProcessorInformation',
         'orderInformation' => '\CyberSource\Model\PtsV2PaymentsRefundPost201ResponseOrderInformation',
@@ -251,7 +251,6 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      */
     public function setId($id)
     {
-
         $this->container['id'] = $id;
 
         return $this;
@@ -315,7 +314,6 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      */
     public function setReconciliationId($reconciliationId)
     {
-
         $this->container['reconciliationId'] = $reconciliationId;
 
         return $this;
@@ -323,7 +321,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
 
     /**
      * Gets clientReferenceInformation
-     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseClientReferenceInformation
+     * @return \CyberSource\Model\PtsV2PaymentsRefundPost201ResponseClientReferenceInformation
      */
     public function getClientReferenceInformation()
     {
@@ -332,7 +330,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
 
     /**
      * Sets clientReferenceInformation
-     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseClientReferenceInformation $clientReferenceInformation
+     * @param \CyberSource\Model\PtsV2PaymentsRefundPost201ResponseClientReferenceInformation $clientReferenceInformation
      * @return $this
      */
     public function setClientReferenceInformation($clientReferenceInformation)
@@ -430,6 +428,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      * @param  integer $offset Offset
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -440,6 +439,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      * @param  integer $offset Offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -451,6 +451,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      * @param  mixed   $value  Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -465,6 +466,7 @@ class PtsV2PaymentsRefundPost201Response implements ArrayAccess
      * @param  integer $offset Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

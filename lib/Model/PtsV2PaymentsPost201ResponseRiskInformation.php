@@ -63,7 +63,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
         'localTime' => 'string',
         'score' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationScore',
         'ipAddress' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationIpAddress',
-        'providers' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationProviders',
+        'providers' => 'map[string,map[string,string]]',
         'travel' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationTravel'
     ];
 
@@ -336,7 +336,6 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
      */
     public function setLocalTime($localTime)
     {
-
         $this->container['localTime'] = $localTime;
 
         return $this;
@@ -386,7 +385,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
 
     /**
      * Gets providers
-     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationProviders
+     * @return map[string,map[string,string]]
      */
     public function getProviders()
     {
@@ -395,7 +394,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
 
     /**
      * Sets providers
-     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseRiskInformationProviders $providers
+     * @param map[string,map[string,string]] $providers Name of the 3rd party provider, for example, Emailage. For all possible values, see the `decision_provider_#_name` field description in the _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** > **Documentation** > **Guides** > _Decision Manager Using the SCMP API Developer Guide_ (PDF link).
      * @return $this
      */
     public function setProviders($providers)
@@ -430,6 +429,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
      * @param  integer $offset Offset
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -440,6 +440,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
      * @param  integer $offset Offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -451,6 +452,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
      * @param  mixed   $value  Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -465,6 +467,7 @@ class PtsV2PaymentsPost201ResponseRiskInformation implements ArrayAccess
      * @param  integer $offset Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
