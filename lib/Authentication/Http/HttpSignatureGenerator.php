@@ -34,11 +34,11 @@ class HttpSignatureGenerator implements TokenGenerator
             //signature creation for GET/DELETE
             if($merchantConfig->getUseMetaKey())
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
             }
             else
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
             }
             $headerString = GlobalParameter::GETALGOHEADER;
         } else if($method==GlobalParameter::POST || $method==GlobalParameter::PUT || $method==GlobalParameter::PATCH){
@@ -54,11 +54,11 @@ class HttpSignatureGenerator implements TokenGenerator
             $digest = $digestCon->generateDigest($payloadData);
             if($merchantConfig->getUseMetaKey())
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\ndigest: ".GlobalParameter::SHA256DIGEST.$digest."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\ndigest: ".GlobalParameter::SHA256DIGEST.$digest."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
             }
             else
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\ndigest: ".GlobalParameter::SHA256DIGEST.$digest."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\ndigest: ".GlobalParameter::SHA256DIGEST.$digest."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
             }
             $headerString = GlobalParameter::POSTALGOHEADER;
         }
@@ -75,7 +75,7 @@ class HttpSignatureGenerator implements TokenGenerator
     }
     //Purpose: using for access and return the signature token
     protected function accessTokenHeader($signatureString, $headerString, $merchantConfig){
-        $signatureByteString = utf8_encode($signatureString);
+        $signatureByteString = mb_convert_encoding($signatureString, 'UTF-8', mb_detect_encoding($signatureString));
         $decodeKey = base64_decode($merchantConfig->getSecretKey());
         $signature = base64_encode(hash_hmac(GlobalParameter::SHA256, $signatureByteString, $decodeKey, true));
         $signatureHeader = array(

@@ -1,14 +1,14 @@
-# CyberSource\KeymanagementApi
+# CyberSource\KeyManagementApi
 
 All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**searchKeys**](KeymanagementApi.md#searchKeys) | **GET** /kms/v2/keys | Search Keys
+[**searchKeys**](KeyManagementApi.md#searchKeys) | **GET** /kms/v2/keys | Search Keys
 
 
 # **searchKeys**
-> \CyberSource\Model\InlineResponse20011 searchKeys($offset, $limit, $sort, $organizationIds, $keyIds, $keyTypes, $expirationStartDate, $expirationEndDate)
+> \CyberSource\Model\InlineResponse2001 searchKeys($offset, $limit, $sort, $organizationIds, $keyIds, $keyTypes, $expirationStartDate, $expirationEndDate)
 
 Search Keys
 
@@ -19,7 +19,7 @@ Search one or more Keys
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new CyberSource\Api\KeymanagementApi();
+$api_instance = new CyberSource\Api\KeyManagementApi();
 $offset = 56; // int | This allows you to specify the page offset from the resulting list resultset you want the records to be returned
 $limit = 56; // int | This allows you to specify the total number of records to be returned off the resulting list resultset
 $sort = "sort_example"; // string | This allows you to specify a comma separated list of fields in the order which the resulting list resultset must be sorted.
@@ -33,7 +33,7 @@ try {
     $result = $api_instance->searchKeys($offset, $limit, $sort, $organizationIds, $keyIds, $keyTypes, $expirationStartDate, $expirationEndDate);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling KeymanagementApi->searchKeys: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KeyManagementApi->searchKeys: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\CyberSource\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 

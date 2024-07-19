@@ -212,6 +212,21 @@ class MerchantConfiguration
      */
     protected $logConfig;
 
+
+    /**
+     * NetworkToken Cert file directory
+     *
+     * @var string
+     */
+    protected $jwePEMFileDirectory;
+
+    /**
+     * tempFolderPath directory
+     *
+     * @var string
+     */
+    protected $tempFolderPath;
+
     /**
      * Constructor
      */
@@ -221,7 +236,7 @@ class MerchantConfiguration
         $this->logConfig = new LogConfiguration();
 
         if (self::$logger === null) {
-            self::$logger = (new LogFactory())->getLogger(\CyberSource\Utilities\Helpers\ClassHelper::getClassName(get_class()), $this->logConfig);
+            self::$logger = (new LogFactory())->getLogger(\CyberSource\Utilities\Helpers\ClassHelper::getClassName(get_class($this)), $this->logConfig);
         }
     }
 
@@ -872,6 +887,22 @@ class MerchantConfiguration
     }
 
     /**
+     * @return string
+     */
+    public function getJwePEMFileDirectory()
+    {
+        return $this->jwePEMFileDirectory;
+    }
+
+    /**
+     * @param string $jwePEMFileDirectory
+     */
+    public function setJwePEMFileDirectory(string $jwePEMFileDirectory)
+    {
+        $this->jwePEMFileDirectory = $jwePEMFileDirectory;
+    }
+
+    /**
      * Gets the essential information for debugging
      *
      * @return string The report for debugging
@@ -973,6 +1004,10 @@ class MerchantConfiguration
 
         if(isset($connectionDet->solutionId))
             $config = $config->setSolutionId($connectionDet->solutionId);
+
+        if (isset($connectionDet->jwePEMFileDirectory)) {
+            $config = $config->setJwePEMFileDirectory($connectionDet->jwePEMFileDirectory);
+        }
        
         $config->validateMerchantData();
         if($error_message != null){
@@ -1111,7 +1146,7 @@ class MerchantConfiguration
             }
         }
 		
-        self::$logger = (new LogFactory())->getLogger(\CyberSource\Utilities\Helpers\ClassHelper::getClassName(get_class()), $this->getLogConfiguration());
+        self::$logger = (new LogFactory())->getLogger(\CyberSource\Utilities\Helpers\ClassHelper::getClassName(get_class($this)), $this->getLogConfiguration());
         self::$logger->info(GlobalParameter::LOG_START_MSG);
         $logConfig = $this->getLogConfiguration();
         $configurationData = array(

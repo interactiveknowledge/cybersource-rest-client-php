@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **activateSubscription**
-> \CyberSource\Model\InlineResponse2009 activateSubscription($id, $activateSubscriptionRequest)
+> \CyberSource\Model\ActivateSubscriptionResponse activateSubscription($id)
 
 Activate a Subscription
 
@@ -28,10 +28,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new CyberSource\Api\SubscriptionsApi();
 $id = "id_example"; // string | Subscription Id
-$activateSubscriptionRequest = NULL; // object | 
 
 try {
-    $result = $api_instance->activateSubscription($id, $activateSubscriptionRequest);
+    $result = $api_instance->activateSubscription($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->activateSubscription: ', $e->getMessage(), PHP_EOL;
@@ -44,11 +43,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id |
- **activateSubscriptionRequest** | **object**|  | [optional]
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\CyberSource\Model\ActivateSubscriptionResponse**](../Model/ActivateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -57,12 +55,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cancelSubscription**
-> \CyberSource\Model\InlineResponse202 cancelSubscription($id, $cancelSubscriptionRequest)
+> \CyberSource\Model\CancelSubscriptionResponse cancelSubscription($id)
 
 Cancel a Subscription
 
@@ -75,10 +73,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new CyberSource\Api\SubscriptionsApi();
 $id = "id_example"; // string | Subscription Id
-$cancelSubscriptionRequest = NULL; // object | 
 
 try {
-    $result = $api_instance->cancelSubscription($id, $cancelSubscriptionRequest);
+    $result = $api_instance->cancelSubscription($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->cancelSubscription: ', $e->getMessage(), PHP_EOL;
@@ -91,11 +88,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id |
- **cancelSubscriptionRequest** | **object**|  | [optional]
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse202**](../Model/InlineResponse202.md)
+[**\CyberSource\Model\CancelSubscriptionResponse**](../Model/CancelSubscriptionResponse.md)
 
 ### Authorization
 
@@ -104,12 +100,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSubscription**
-> \CyberSource\Model\InlineResponse2011 createSubscription($createSubscriptionRequest)
+> \CyberSource\Model\CreateSubscriptionResponse createSubscription($createSubscriptionRequest)
 
 Create a Subscription
 
@@ -140,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2011**](../Model/InlineResponse2011.md)
+[**\CyberSource\Model\CreateSubscriptionResponse**](../Model/CreateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -149,12 +145,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllSubscriptions**
-> \CyberSource\Model\InlineResponse2006 getAllSubscriptions($offset, $limit, $code, $status)
+> \CyberSource\Model\GetAllSubscriptionsResponse getAllSubscriptions($offset, $limit, $code, $status)
 
 Get a List of Subscriptions
 
@@ -191,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\CyberSource\Model\GetAllSubscriptionsResponse**](../Model/GetAllSubscriptionsResponse.md)
 
 ### Authorization
 
@@ -200,12 +196,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscription**
-> \CyberSource\Model\InlineResponse2007 getSubscription($id)
+> \CyberSource\Model\GetSubscriptionResponse getSubscription($id)
 
 Get a Subscription
 
@@ -236,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\CyberSource\Model\GetSubscriptionResponse**](../Model/GetSubscriptionResponse.md)
 
 ### Authorization
 
@@ -245,12 +241,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscriptionCode**
-> \CyberSource\Model\InlineResponse20010 getSubscriptionCode()
+> \CyberSource\Model\GetSubscriptionCodeResponse getSubscriptionCode()
 
 Get a Subscription Code
 
@@ -277,7 +273,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\CyberSource\Model\GetSubscriptionCodeResponse**](../Model/GetSubscriptionCodeResponse.md)
 
 ### Authorization
 
@@ -286,12 +282,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **suspendSubscription**
-> \CyberSource\Model\InlineResponse2021 suspendSubscription($id, $suspendSubscriptionRequest)
+> \CyberSource\Model\SuspendSubscriptionResponse suspendSubscription($id)
 
 Suspend a Subscription
 
@@ -304,10 +300,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new CyberSource\Api\SubscriptionsApi();
 $id = "id_example"; // string | Subscription Id
-$suspendSubscriptionRequest = NULL; // object | 
 
 try {
-    $result = $api_instance->suspendSubscription($id, $suspendSubscriptionRequest);
+    $result = $api_instance->suspendSubscription($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionsApi->suspendSubscription: ', $e->getMessage(), PHP_EOL;
@@ -320,11 +315,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id |
- **suspendSubscriptionRequest** | **object**|  | [optional]
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2021**](../Model/InlineResponse2021.md)
+[**\CyberSource\Model\SuspendSubscriptionResponse**](../Model/SuspendSubscriptionResponse.md)
 
 ### Authorization
 
@@ -333,12 +327,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateSubscription**
-> \CyberSource\Model\InlineResponse2008 updateSubscription($id, $updateSubscription)
+> \CyberSource\Model\UpdateSubscriptionResponse updateSubscription($id, $updateSubscription)
 
 Update a Subscription
 
@@ -371,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CyberSource\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\CyberSource\Model\UpdateSubscriptionResponse**](../Model/UpdateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -380,7 +374,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
