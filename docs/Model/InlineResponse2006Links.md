@@ -3,10 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**self** | [**\CyberSource\Model\PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**cancel** | [**\CyberSource\Model\PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**suspend** | [**\CyberSource\Model\PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
-**activate** | [**\CyberSource\Model\PtsV2PaymentsPost201ResponseLinksSelf**](PtsV2PaymentsPost201ResponseLinksSelf.md) |  | [optional] 
+**rel** | **string** | Valid Values:   * self   * first   * last   * prev   * next | [optional] 
+**href** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
