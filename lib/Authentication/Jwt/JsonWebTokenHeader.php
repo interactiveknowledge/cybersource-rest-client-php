@@ -10,13 +10,14 @@ use Firebase\JWT\JWT as JWT;
 use CyberSource\Logging\LogFactory as LogFactory;
 use CyberSource\Authentication\Util\Cache as Cache;
 
-require_once 'vendor/autoload.php';
+// Causes problems on Drupal.
+// require_once 'vendor/autoload.php';
 
-class JsonWebTokenHeader 
+class JsonWebTokenHeader
 {
     private static $logger = null;
     private static $cache = null;
-    
+
     /**
      * Constructor
      */
@@ -30,7 +31,7 @@ class JsonWebTokenHeader
     }
 
     //Get the JasonWeb Token
-    public function getJsonWebToken($jwtBody, $merchantConfig) 
+    public function getJsonWebToken($jwtBody, $merchantConfig)
     {
         $merchantID = $merchantConfig->getMerchantID();
         $keyPass = $merchantConfig->getKeyPassword();
@@ -39,7 +40,7 @@ class JsonWebTokenHeader
         $keyFileName = $merchantConfig->getKeyFileName();
         if(empty($keyalias)){
             $keyalias = $merchantID;
-        } 
+        }
         else if(($keyalias != $merchantID))
         {
             $keyalias = $merchantID;
@@ -47,8 +48,8 @@ class JsonWebTokenHeader
         }
         if(empty($keyFileName)){
             $keyFileName = $merchantID;
-        } 
-        
+        }
+
         if(empty($keyDir)){
             $keyDir = GlobalParameter::KEY_DIR_PATH_DEFAULT;
         }
@@ -62,13 +63,13 @@ class JsonWebTokenHeader
 
         $filePath = $keyDir.$keyFileName.".p12";
         //get certificate from p12
-        if (file_exists($filePath)) 
+        if (file_exists($filePath))
         {
             $cert_store = file_get_contents($filePath);
             $cacheKey = $keyFileName."_".strtotime(date("F d Y H:i:s", filemtime($filePath)));
         }
         else
-        { 
+        {
             $exception = new AuthException(GlobalParameter::KEY_FILE_INCORRECT, 0);
             self::$logger->error("AuthException : " . GlobalParameter::KEY_FILE_INCORRECT);
             self::$logger->close();
@@ -83,19 +84,19 @@ class JsonWebTokenHeader
             $result = self::$cache->storeInCache("$cacheKey", $cert_store); //apcu_store("$cacheKey", $cert_store);
             $cache_cert_store = self::$cache->fetchFromCache($cacheKey); // apcu_fetch($cacheKey);
         }
-        //read the certificate from cert obj    
-        if (openssl_pkcs12_read($cache_cert_store, $cert_info, $keyPass)) 
+        //read the certificate from cert obj
+        if (openssl_pkcs12_read($cache_cert_store, $cert_info, $keyPass))
         {
             //Creating public key using certificate Not working in decryption
             $certdata= openssl_x509_parse($cert_info['cert'],1);
-            $privateKey = $cert_info['pkey']; 
-            $publicKey = $this->PemToDer($cert_info['cert']); 
+            $privateKey = $cert_info['pkey'];
+            $publicKey = $this->PemToDer($cert_info['cert']);
             $x5cArray = array($publicKey);
             $headers = array(
                 "v-c-merchant-id" => $keyalias,
                 "x5c" => $x5cArray
             );
-            
+
             self::$logger->close();
             return JWT::encode($jwtBody, $privateKey, GlobalParameter::RS256, "", $headers);
         }
@@ -113,6 +114,6 @@ class JsonWebTokenHeader
         unset($lines[count($lines)-1]);
         unset($lines[0]);
         return implode("\n", $lines);
-    }    
+    }
 }
 ?>
