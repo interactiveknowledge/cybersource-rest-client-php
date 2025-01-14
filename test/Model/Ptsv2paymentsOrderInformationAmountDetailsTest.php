@@ -266,9 +266,23 @@ class Ptsv2paymentsOrderInformationAmountDetailsTest extends \PHPUnit_Framework_
     }
 
     /**
+     * Test attribute "octSurcharge"
+     */
+    public function testPropertyOctSurcharge()
+    {
+    }
+
+    /**
      * Test attribute "order"
      */
     public function testPropertyOrder()
+    {
+    }
+
+    /**
+     * Test attribute "anticipatedAmount"
+     */
+    public function testPropertyAnticipatedAmount()
     {
     }
 }

@@ -80,7 +80,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         'originalCurrency' => 'string',
         'cashbackAmount' => 'string',
         'currencyConversion' => '\CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion',
-        'order' => '\CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOrder'
+        'octSurcharge' => '\CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge',
+        'order' => '\CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOrder',
+        'anticipatedAmount' => 'string'
     ];
 
     /**
@@ -115,7 +117,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         'originalCurrency' => null,
         'cashbackAmount' => null,
         'currencyConversion' => null,
-        'order' => null
+        'octSurcharge' => null,
+        'order' => null,
+        'anticipatedAmount' => null
     ];
 
     public static function swaggerTypes()
@@ -160,7 +164,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         'originalCurrency' => 'originalCurrency',
         'cashbackAmount' => 'cashbackAmount',
         'currencyConversion' => 'currencyConversion',
-        'order' => 'order'
+        'octSurcharge' => 'oct-surcharge',
+        'order' => 'order',
+        'anticipatedAmount' => 'anticipatedAmount'
     ];
 
 
@@ -196,7 +202,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         'originalCurrency' => 'setOriginalCurrency',
         'cashbackAmount' => 'setCashbackAmount',
         'currencyConversion' => 'setCurrencyConversion',
-        'order' => 'setOrder'
+        'octSurcharge' => 'setOctSurcharge',
+        'order' => 'setOrder',
+        'anticipatedAmount' => 'setAnticipatedAmount'
     ];
 
 
@@ -232,7 +240,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         'originalCurrency' => 'getOriginalCurrency',
         'cashbackAmount' => 'getCashbackAmount',
         'currencyConversion' => 'getCurrencyConversion',
-        'order' => 'getOrder'
+        'octSurcharge' => 'getOctSurcharge',
+        'order' => 'getOrder',
+        'anticipatedAmount' => 'getAnticipatedAmount'
     ];
 
     public static function attributeMap()
@@ -293,7 +303,9 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
         $this->container['originalCurrency'] = isset($data['originalCurrency']) ? $data['originalCurrency'] : null;
         $this->container['cashbackAmount'] = isset($data['cashbackAmount']) ? $data['cashbackAmount'] : null;
         $this->container['currencyConversion'] = isset($data['currencyConversion']) ? $data['currencyConversion'] : null;
+        $this->container['octSurcharge'] = isset($data['octSurcharge']) ? $data['octSurcharge'] : null;
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['anticipatedAmount'] = isset($data['anticipatedAmount']) ? $data['anticipatedAmount'] : null;
     }
 
     /**
@@ -889,6 +901,27 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
     }
 
     /**
+     * Gets octSurcharge
+     * @return \CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge
+     */
+    public function getOctSurcharge()
+    {
+        return $this->container['octSurcharge'];
+    }
+
+    /**
+     * Sets octSurcharge
+     * @param \CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge $octSurcharge
+     * @return $this
+     */
+    public function setOctSurcharge($octSurcharge)
+    {
+        $this->container['octSurcharge'] = $octSurcharge;
+
+        return $this;
+    }
+
+    /**
      * Gets order
      * @return \CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetailsOrder
      */
@@ -905,6 +938,27 @@ class Ptsv2paymentsOrderInformationAmountDetails implements ArrayAccess
     public function setOrder($order)
     {
         $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets anticipatedAmount
+     * @return string
+     */
+    public function getAnticipatedAmount()
+    {
+        return $this->container['anticipatedAmount'];
+    }
+
+    /**
+     * Sets anticipatedAmount
+     * @param string $anticipatedAmount This API Field contains the anticipated amount details. This supports use cases where the Merchant does not wish to have funds held against the account, but needs to confirm an amount prior to authorization, such as for a trial subscription, reservation service, or loyalty program. In an account verification, the anticipated amount is used to confirm the account has availability to accept purchases.
+     * @return $this
+     */
+    public function setAnticipatedAmount($anticipatedAmount)
+    {
+        $this->container['anticipatedAmount'] = $anticipatedAmount;
 
         return $this;
     }

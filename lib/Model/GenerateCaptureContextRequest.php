@@ -54,9 +54,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'clientVersion' => 'string',
         'targetOrigins' => 'string[]',
         'allowedCardNetworks' => 'string[]',
-        'clientVersion' => 'string',
         'checkoutApiInitialization' => '\CyberSource\Model\Microformv2sessionsCheckoutApiInitialization'
     ];
 
@@ -65,9 +65,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'clientVersion' => null,
         'targetOrigins' => null,
         'allowedCardNetworks' => null,
-        'clientVersion' => null,
         'checkoutApiInitialization' => null
     ];
 
@@ -86,9 +86,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'clientVersion' => 'clientVersion',
         'targetOrigins' => 'targetOrigins',
         'allowedCardNetworks' => 'allowedCardNetworks',
-        'clientVersion' => 'clientVersion',
         'checkoutApiInitialization' => 'checkoutApiInitialization'
     ];
 
@@ -98,9 +98,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'clientVersion' => 'setClientVersion',
         'targetOrigins' => 'setTargetOrigins',
         'allowedCardNetworks' => 'setAllowedCardNetworks',
-        'clientVersion' => 'setClientVersion',
         'checkoutApiInitialization' => 'setCheckoutApiInitialization'
     ];
 
@@ -110,9 +110,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'clientVersion' => 'getClientVersion',
         'targetOrigins' => 'getTargetOrigins',
         'allowedCardNetworks' => 'getAllowedCardNetworks',
-        'clientVersion' => 'getClientVersion',
         'checkoutApiInitialization' => 'getCheckoutApiInitialization'
     ];
 
@@ -147,9 +147,9 @@ class GenerateCaptureContextRequest implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['clientVersion'] = isset($data['clientVersion']) ? $data['clientVersion'] : null;
         $this->container['targetOrigins'] = isset($data['targetOrigins']) ? $data['targetOrigins'] : null;
         $this->container['allowedCardNetworks'] = isset($data['allowedCardNetworks']) ? $data['allowedCardNetworks'] : null;
-        $this->container['clientVersion'] = isset($data['clientVersion']) ? $data['clientVersion'] : null;
         $this->container['checkoutApiInitialization'] = isset($data['checkoutApiInitialization']) ? $data['checkoutApiInitialization'] : null;
     }
 
@@ -179,6 +179,27 @@ class GenerateCaptureContextRequest implements ArrayAccess
 
 
     /**
+     * Gets clientVersion
+     * @return string
+     */
+    public function getClientVersion()
+    {
+        return $this->container['clientVersion'];
+    }
+
+    /**
+     * Sets clientVersion
+     * @param string $clientVersion Specify the version of Microform that you want to use.
+     * @return $this
+     */
+    public function setClientVersion($clientVersion)
+    {
+        $this->container['clientVersion'] = $clientVersion;
+
+        return $this;
+    }
+
+    /**
      * Gets targetOrigins
      * @return string[]
      */
@@ -189,7 +210,7 @@ class GenerateCaptureContextRequest implements ArrayAccess
 
     /**
      * Sets targetOrigins
-     * @param string[] $targetOrigins The merchant origin domain (e.g. https://example.com) used to initiate microform Integration. Required to comply with CORS and CSP standards.
+     * @param string[] $targetOrigins The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080<br><br>  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \"https://example.com\",     \"https://basket.example.com\",     \"https://ecom.example.com\"   ]
      * @return $this
      */
     public function setTargetOrigins($targetOrigins)
@@ -210,33 +231,12 @@ class GenerateCaptureContextRequest implements ArrayAccess
 
     /**
      * Sets allowedCardNetworks
-     * @param string[] $allowedCardNetworks
+     * @param string[] $allowedCardNetworks The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA
      * @return $this
      */
     public function setAllowedCardNetworks($allowedCardNetworks)
     {
         $this->container['allowedCardNetworks'] = $allowedCardNetworks;
-
-        return $this;
-    }
-
-    /**
-     * Gets clientVersion
-     * @return string
-     */
-    public function getClientVersion()
-    {
-        return $this->container['clientVersion'];
-    }
-
-    /**
-     * Sets clientVersion
-     * @param string $clientVersion
-     * @return $this
-     */
-    public function setClientVersion($clientVersion)
-    {
-        $this->container['clientVersion'] = $clientVersion;
 
         return $this;
     }

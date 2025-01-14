@@ -154,6 +154,13 @@ class PtsV2PaymentsPost201ResponseProcessorInformationTest extends \PHPUnit_Fram
     }
 
     /**
+     * Test attribute "sequenceNumber"
+     */
+    public function testPropertySequenceNumber()
+    {
+    }
+
+    /**
      * Test attribute "avs"
      */
     public function testPropertyAvs()
@@ -339,6 +346,41 @@ class PtsV2PaymentsPost201ResponseProcessorInformationTest extends \PHPUnit_Fram
      * Test attribute "deviceUrl"
      */
     public function testPropertyDeviceUrl()
+    {
+    }
+
+    /**
+     * Test attribute "disbursementMode"
+     */
+    public function testPropertyDisbursementMode()
+    {
+    }
+
+    /**
+     * Test attribute "updateTimeUtc"
+     */
+    public function testPropertyUpdateTimeUtc()
+    {
+    }
+
+    /**
+     * Test attribute "expirationTimeUtc"
+     */
+    public function testPropertyExpirationTimeUtc()
+    {
+    }
+
+    /**
+     * Test attribute "orderId"
+     */
+    public function testPropertyOrderId()
+    {
+    }
+
+    /**
+     * Test attribute "orderStatus"
+     */
+    public function testPropertyOrderStatus()
     {
     }
 }

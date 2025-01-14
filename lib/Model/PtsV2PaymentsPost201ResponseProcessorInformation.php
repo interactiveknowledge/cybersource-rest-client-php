@@ -64,6 +64,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'responseCategoryCode' => 'string',
         'forwardedAcquirerCode' => 'string',
         'settlementDate' => 'string',
+        'sequenceNumber' => 'string',
         'avs' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseProcessorInformationAvs',
         'cardVerification' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseProcessorInformationCardVerification',
         'merchantAdvice' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice',
@@ -90,7 +91,12 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'transactionExpiryDate' => 'string',
         'customUrl' => 'string',
         'schemeAssignedId' => 'string',
-        'deviceUrl' => 'string'
+        'deviceUrl' => 'string',
+        'disbursementMode' => 'string',
+        'updateTimeUtc' => 'string',
+        'expirationTimeUtc' => 'string',
+        'orderId' => 'string',
+        'orderStatus' => 'string'
     ];
 
     /**
@@ -109,6 +115,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'responseCategoryCode' => null,
         'forwardedAcquirerCode' => null,
         'settlementDate' => null,
+        'sequenceNumber' => null,
         'avs' => null,
         'cardVerification' => null,
         'merchantAdvice' => null,
@@ -135,7 +142,12 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'transactionExpiryDate' => null,
         'customUrl' => null,
         'schemeAssignedId' => null,
-        'deviceUrl' => null
+        'deviceUrl' => null,
+        'disbursementMode' => null,
+        'updateTimeUtc' => null,
+        'expirationTimeUtc' => null,
+        'orderId' => null,
+        'orderStatus' => null
     ];
 
     public static function swaggerTypes()
@@ -164,6 +176,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'responseCategoryCode' => 'responseCategoryCode',
         'forwardedAcquirerCode' => 'forwardedAcquirerCode',
         'settlementDate' => 'settlementDate',
+        'sequenceNumber' => 'sequenceNumber',
         'avs' => 'avs',
         'cardVerification' => 'cardVerification',
         'merchantAdvice' => 'merchantAdvice',
@@ -190,7 +203,12 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'transactionExpiryDate' => 'transactionExpiryDate',
         'customUrl' => 'customUrl',
         'schemeAssignedId' => 'schemeAssignedId',
-        'deviceUrl' => 'deviceUrl'
+        'deviceUrl' => 'deviceUrl',
+        'disbursementMode' => 'disbursementMode',
+        'updateTimeUtc' => 'updateTimeUtc',
+        'expirationTimeUtc' => 'expirationTimeUtc',
+        'orderId' => 'orderId',
+        'orderStatus' => 'orderStatus'
     ];
 
 
@@ -210,6 +228,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'responseCategoryCode' => 'setResponseCategoryCode',
         'forwardedAcquirerCode' => 'setForwardedAcquirerCode',
         'settlementDate' => 'setSettlementDate',
+        'sequenceNumber' => 'setSequenceNumber',
         'avs' => 'setAvs',
         'cardVerification' => 'setCardVerification',
         'merchantAdvice' => 'setMerchantAdvice',
@@ -236,7 +255,12 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'transactionExpiryDate' => 'setTransactionExpiryDate',
         'customUrl' => 'setCustomUrl',
         'schemeAssignedId' => 'setSchemeAssignedId',
-        'deviceUrl' => 'setDeviceUrl'
+        'deviceUrl' => 'setDeviceUrl',
+        'disbursementMode' => 'setDisbursementMode',
+        'updateTimeUtc' => 'setUpdateTimeUtc',
+        'expirationTimeUtc' => 'setExpirationTimeUtc',
+        'orderId' => 'setOrderId',
+        'orderStatus' => 'setOrderStatus'
     ];
 
 
@@ -256,6 +280,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'responseCategoryCode' => 'getResponseCategoryCode',
         'forwardedAcquirerCode' => 'getForwardedAcquirerCode',
         'settlementDate' => 'getSettlementDate',
+        'sequenceNumber' => 'getSequenceNumber',
         'avs' => 'getAvs',
         'cardVerification' => 'getCardVerification',
         'merchantAdvice' => 'getMerchantAdvice',
@@ -282,7 +307,12 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         'transactionExpiryDate' => 'getTransactionExpiryDate',
         'customUrl' => 'getCustomUrl',
         'schemeAssignedId' => 'getSchemeAssignedId',
-        'deviceUrl' => 'getDeviceUrl'
+        'deviceUrl' => 'getDeviceUrl',
+        'disbursementMode' => 'getDisbursementMode',
+        'updateTimeUtc' => 'getUpdateTimeUtc',
+        'expirationTimeUtc' => 'getExpirationTimeUtc',
+        'orderId' => 'getOrderId',
+        'orderStatus' => 'getOrderStatus'
     ];
 
     public static function attributeMap()
@@ -327,6 +357,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         $this->container['responseCategoryCode'] = isset($data['responseCategoryCode']) ? $data['responseCategoryCode'] : null;
         $this->container['forwardedAcquirerCode'] = isset($data['forwardedAcquirerCode']) ? $data['forwardedAcquirerCode'] : null;
         $this->container['settlementDate'] = isset($data['settlementDate']) ? $data['settlementDate'] : null;
+        $this->container['sequenceNumber'] = isset($data['sequenceNumber']) ? $data['sequenceNumber'] : null;
         $this->container['avs'] = isset($data['avs']) ? $data['avs'] : null;
         $this->container['cardVerification'] = isset($data['cardVerification']) ? $data['cardVerification'] : null;
         $this->container['merchantAdvice'] = isset($data['merchantAdvice']) ? $data['merchantAdvice'] : null;
@@ -354,6 +385,11 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
         $this->container['customUrl'] = isset($data['customUrl']) ? $data['customUrl'] : null;
         $this->container['schemeAssignedId'] = isset($data['schemeAssignedId']) ? $data['schemeAssignedId'] : null;
         $this->container['deviceUrl'] = isset($data['deviceUrl']) ? $data['deviceUrl'] : null;
+        $this->container['disbursementMode'] = isset($data['disbursementMode']) ? $data['disbursementMode'] : null;
+        $this->container['updateTimeUtc'] = isset($data['updateTimeUtc']) ? $data['updateTimeUtc'] : null;
+        $this->container['expirationTimeUtc'] = isset($data['expirationTimeUtc']) ? $data['expirationTimeUtc'] : null;
+        $this->container['orderId'] = isset($data['orderId']) ? $data['orderId'] : null;
+        $this->container['orderStatus'] = isset($data['orderStatus']) ? $data['orderStatus'] : null;
     }
 
     /**
@@ -455,7 +491,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
 
     /**
      * Sets transactionId
-     * @param string $transactionId Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value.  Returned by the authorization service.  #### PIN debit Transaction identifier generated by the processor.  Returned by PIN debit credit.  #### GPX Processor transaction ID.  #### Cielo For Cielo, this value is the non-sequential unit (NSU) and is supported for all transactions. The value is generated by Cielo or the issuing bank.  #### Comercio Latino For Comercio Latino, this value is the proof of sale or non-sequential unit (NSU) number generated by the acquirers Cielo and Rede, or the issuing bank.  #### CyberSource through VisaNet and GPN For details about this value for CyberSource through VisaNet and GPN, see \"Network Transaction Identifiers\" in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  #### Moneris This value identifies the transaction on a host system. It contains the following information: - Terminal used to process the transaction - Shift during which the transaction took place - Batch number - Transaction number within the batch You must store this value. If you give the customer a receipt, display this value on the receipt.  **Example** For the value 66012345001069003: - Terminal ID = 66012345 - Shift number = 001 - Batch number = 069 - Transaction number = 003
+     * @param string $transactionId Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this value.  Returned by the authorization service.  #### PIN debit Transaction identifier generated by the processor.  Returned by PIN debit credit.  #### GPX Processor transaction ID.  #### Cielo For Cielo, this value is the non-sequential unit (NSU) and is supported for all transactions. The value is generated by Cielo or the issuing bank.  #### Comercio Latino For Comercio Latino, this value is the proof of sale or non-sequential unit (NSU) number generated by the acquirers Cielo and Rede, or the issuing bank.  #### CyberSource through VisaNet and GPN For details about this value for CyberSource through VisaNet and GPN, see \"processorInformation.networkTransactionId\" in [REST API Fields](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  #### Moneris This value identifies the transaction on a host system. It contains the following information: - Terminal used to process the transaction - Shift during which the transaction took place - Batch number - Transaction number within the batch You must store this value. If you give the customer a receipt, display this value on the receipt.  **Example** For the value 66012345001069003: - Terminal ID = 66012345 - Shift number = 001 - Batch number = 069 - Transaction number = 003
      * @return $this
      */
     public function setTransactionId($transactionId)
@@ -497,7 +533,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
 
     /**
      * Sets responseCode
-     * @param string $responseCode For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is `08`, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: `aa,bb` with the two values separated by a comma and where: - `aa` is the two-digit error message from Atos. - `bb` is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example `2:R06`  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the `processorInformation.responseCategoryCode` field. String (3)
+     * @param string $responseCode For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is `08`, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: `aa,bb` with the two values separated by a comma and where: - `aa` is the two-digit error message from Atos. - `bb` is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example `2:R06`  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the `processorInformation.responseCategoryCode` field. String (3)  #### paypalgateway Processor generated ID for the itemized detail.
      * @return $this
      */
     public function setResponseCode($responseCode)
@@ -608,6 +644,27 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
     public function setSettlementDate($settlementDate)
     {
         $this->container['settlementDate'] = $settlementDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets sequenceNumber
+     * @return string
+     */
+    public function getSequenceNumber()
+    {
+        return $this->container['sequenceNumber'];
+    }
+
+    /**
+     * Sets sequenceNumber
+     * @param string $sequenceNumber This field serves as a unique identifier for initial and subsequent recurring transactions, specific to the payment brand, and is crucial for transaction tracking and recurrence management. Not all processors provide this value. Returned by the authorization service.
+     * @return $this
+     */
+    public function setSequenceNumber($sequenceNumber)
+    {
+        $this->container['sequenceNumber'] = $sequenceNumber;
 
         return $this;
     }
@@ -1175,6 +1232,111 @@ class PtsV2PaymentsPost201ResponseProcessorInformation implements ArrayAccess
     public function setDeviceUrl($deviceUrl)
     {
         $this->container['deviceUrl'] = $deviceUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets disbursementMode
+     * @return string
+     */
+    public function getDisbursementMode()
+    {
+        return $this->container['disbursementMode'];
+    }
+
+    /**
+     * Sets disbursementMode
+     * @param string $disbursementMode The funds are released to the merchant immediately. INSTANT The funds are released to the merchant immediately. DELAYED The funds are held for a finite number of days. The actual duration depends on the region and type of integration. You can release the funds through a referenced payout. Otherwise, the funds disbursed automatically after the specified duration.
+     * @return $this
+     */
+    public function setDisbursementMode($disbursementMode)
+    {
+        $this->container['disbursementMode'] = $disbursementMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets updateTimeUtc
+     * @return string
+     */
+    public function getUpdateTimeUtc()
+    {
+        return $this->container['updateTimeUtc'];
+    }
+
+    /**
+     * Sets updateTimeUtc
+     * @param string $updateTimeUtc The date and time when the transaction was last updated, in Internet date and time format.
+     * @return $this
+     */
+    public function setUpdateTimeUtc($updateTimeUtc)
+    {
+        $this->container['updateTimeUtc'] = $updateTimeUtc;
+
+        return $this;
+    }
+
+    /**
+     * Gets expirationTimeUtc
+     * @return string
+     */
+    public function getExpirationTimeUtc()
+    {
+        return $this->container['expirationTimeUtc'];
+    }
+
+    /**
+     * Sets expirationTimeUtc
+     * @param string $expirationTimeUtc The date and time when the authorized payment expires, in Internet date and time format.
+     * @return $this
+     */
+    public function setExpirationTimeUtc($expirationTimeUtc)
+    {
+        $this->container['expirationTimeUtc'] = $expirationTimeUtc;
+
+        return $this;
+    }
+
+    /**
+     * Gets orderId
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->container['orderId'];
+    }
+
+    /**
+     * Sets orderId
+     * @param string $orderId The id of the order
+     * @return $this
+     */
+    public function setOrderId($orderId)
+    {
+        $this->container['orderId'] = $orderId;
+
+        return $this;
+    }
+
+    /**
+     * Gets orderStatus
+     * @return string
+     */
+    public function getOrderStatus()
+    {
+        return $this->container['orderStatus'];
+    }
+
+    /**
+     * Sets orderStatus
+     * @param string $orderStatus The order status.  Possible values: - `CREATED` - `VOIDED` - `COMPLETED` - `PAYER_ACTION_REQUIRED`
+     * @return $this
+     */
+    public function setOrderStatus($orderStatus)
+    {
+        $this->container['orderStatus'] = $orderStatus;
 
         return $this;
     }

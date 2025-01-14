@@ -74,7 +74,8 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         'deferredAuthIndicator' => 'bool',
         'cashAdvanceIndicator' => 'bool',
         'splitPaymentTransaction' => 'bool',
-        'cardVerificationIndicator' => 'bool'
+        'cardVerificationIndicator' => 'bool',
+        'aftIndicator' => 'bool'
     ];
 
     /**
@@ -103,7 +104,8 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         'deferredAuthIndicator' => null,
         'cashAdvanceIndicator' => null,
         'splitPaymentTransaction' => null,
-        'cardVerificationIndicator' => null
+        'cardVerificationIndicator' => null,
+        'aftIndicator' => null
     ];
 
     public static function swaggerTypes()
@@ -142,7 +144,8 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         'deferredAuthIndicator' => 'deferredAuthIndicator',
         'cashAdvanceIndicator' => 'cashAdvanceIndicator',
         'splitPaymentTransaction' => 'splitPaymentTransaction',
-        'cardVerificationIndicator' => 'cardVerificationIndicator'
+        'cardVerificationIndicator' => 'cardVerificationIndicator',
+        'aftIndicator' => 'aftIndicator'
     ];
 
 
@@ -172,7 +175,8 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         'deferredAuthIndicator' => 'setDeferredAuthIndicator',
         'cashAdvanceIndicator' => 'setCashAdvanceIndicator',
         'splitPaymentTransaction' => 'setSplitPaymentTransaction',
-        'cardVerificationIndicator' => 'setCardVerificationIndicator'
+        'cardVerificationIndicator' => 'setCardVerificationIndicator',
+        'aftIndicator' => 'setAftIndicator'
     ];
 
 
@@ -202,7 +206,8 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         'deferredAuthIndicator' => 'getDeferredAuthIndicator',
         'cashAdvanceIndicator' => 'getCashAdvanceIndicator',
         'splitPaymentTransaction' => 'getSplitPaymentTransaction',
-        'cardVerificationIndicator' => 'getCardVerificationIndicator'
+        'cardVerificationIndicator' => 'getCardVerificationIndicator',
+        'aftIndicator' => 'getAftIndicator'
     ];
 
     public static function attributeMap()
@@ -258,6 +263,7 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
         $this->container['cashAdvanceIndicator'] = isset($data['cashAdvanceIndicator']) ? $data['cashAdvanceIndicator'] : null;
         $this->container['splitPaymentTransaction'] = isset($data['splitPaymentTransaction']) ? $data['splitPaymentTransaction'] : null;
         $this->container['cardVerificationIndicator'] = isset($data['cardVerificationIndicator']) ? $data['cardVerificationIndicator'] : null;
+        $this->container['aftIndicator'] = isset($data['aftIndicator']) ? $data['aftIndicator'] : null;
     }
 
     /**
@@ -296,7 +302,7 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
 
     /**
      * Sets authType
-     * @param string $authType Authorization type. Possible values:   - `AUTOCAPTURE`: automatic capture.  - `STANDARDCAPTURE`: standard capture.  - `VERBAL`: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to `AUTOCAPTURE` and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to `STANDARDCAPTURE` and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture.  #### Forced Capture Set this field to `VERBAL` and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to `VERBAL` and include it in the capture request to indicate that the request is for a verbal authorization.
+     * @param string $authType Authorization type. Possible values:   - `AUTOCAPTURE`: automatic capture.  - `STANDARDCAPTURE`: standard capture.  - `VERBAL`: forced capture. Include it in the payment request for a forced capture. Include it in the capture request for a verbal payment.  #### Asia, Middle East, and Africa Gateway; Cielo; Comercio Latino; and CyberSource Latin American Processing Set this field to `AUTOCAPTURE` and include it in a bundled request to indicate that you are requesting an automatic capture. If your account is configured to enable automatic captures, set this field to `STANDARDCAPTURE` and include it in a standard authorization or bundled request to indicate that you are overriding an automatic capture.  #### Forced Capture Set this field to `VERBAL` and include it in the authorization request to indicate that you are performing a forced capture; therefore, you receive the authorization code outside the CyberSource system.  #### Verbal Authorization Set this field to `VERBAL` and include it in the capture request to indicate that the request is for a verbal authorization.  #### for PayPal ptsV2CreateOrderPost400Response Set this field to 'AUTHORIZE' or 'CAPTURE' depending on whether you want to invoke delayed capture or sale respectively.
      * @return $this
      */
     public function setAuthType($authType)
@@ -743,6 +749,27 @@ class Ptsv2paymentsProcessingInformationAuthorizationOptions implements ArrayAcc
     public function setCardVerificationIndicator($cardVerificationIndicator)
     {
         $this->container['cardVerificationIndicator'] = $cardVerificationIndicator;
+
+        return $this;
+    }
+
+    /**
+     * Gets aftIndicator
+     * @return bool
+     */
+    public function getAftIndicator()
+    {
+        return $this->container['aftIndicator'];
+    }
+
+    /**
+     * Sets aftIndicator
+     * @param bool $aftIndicator Indicates whether the transaction is an Account Funding Transaction (AFT).  This field is mandatory for Account Funding Transactions (AFT).   Possible values:   - `true` (This is an AFT transaction)   - `false` (default value) (This is not an AFT transaction)
+     * @return $this
+     */
+    public function setAftIndicator($aftIndicator)
+    {
+        $this->container['aftIndicator'] = $aftIndicator;
 
         return $this;
     }

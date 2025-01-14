@@ -55,7 +55,8 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     protected static $swaggerTypes = [
         'bankTransferOptions' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions',
         'paymentSolution' => 'string',
-        'enhancedDataEnabled' => 'bool'
+        'enhancedDataEnabled' => 'bool',
+        'captureOptions' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions'
     ];
 
     /**
@@ -65,7 +66,8 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     protected static $swaggerFormats = [
         'bankTransferOptions' => null,
         'paymentSolution' => null,
-        'enhancedDataEnabled' => null
+        'enhancedDataEnabled' => null,
+        'captureOptions' => null
     ];
 
     public static function swaggerTypes()
@@ -85,7 +87,8 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     protected static $attributeMap = [
         'bankTransferOptions' => 'bankTransferOptions',
         'paymentSolution' => 'paymentSolution',
-        'enhancedDataEnabled' => 'enhancedDataEnabled'
+        'enhancedDataEnabled' => 'enhancedDataEnabled',
+        'captureOptions' => 'captureOptions'
     ];
 
 
@@ -96,7 +99,8 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     protected static $setters = [
         'bankTransferOptions' => 'setBankTransferOptions',
         'paymentSolution' => 'setPaymentSolution',
-        'enhancedDataEnabled' => 'setEnhancedDataEnabled'
+        'enhancedDataEnabled' => 'setEnhancedDataEnabled',
+        'captureOptions' => 'setCaptureOptions'
     ];
 
 
@@ -107,7 +111,8 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     protected static $getters = [
         'bankTransferOptions' => 'getBankTransferOptions',
         'paymentSolution' => 'getPaymentSolution',
-        'enhancedDataEnabled' => 'getEnhancedDataEnabled'
+        'enhancedDataEnabled' => 'getEnhancedDataEnabled',
+        'captureOptions' => 'getCaptureOptions'
     ];
 
     public static function attributeMap()
@@ -144,6 +149,7 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
         $this->container['bankTransferOptions'] = isset($data['bankTransferOptions']) ? $data['bankTransferOptions'] : null;
         $this->container['paymentSolution'] = isset($data['paymentSolution']) ? $data['paymentSolution'] : null;
         $this->container['enhancedDataEnabled'] = isset($data['enhancedDataEnabled']) ? $data['enhancedDataEnabled'] : null;
+        $this->container['captureOptions'] = isset($data['captureOptions']) ? $data['captureOptions'] : null;
     }
 
     /**
@@ -203,7 +209,7 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
 
     /**
      * Sets paymentSolution
-     * @param string $paymentSolution Type of digital payment solution for the transaction. Possible Values:   - `visacheckout`: Visa Checkout. This value is required for Visa Checkout transactions. For details, see `payment_solution` field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - `001`: Apple Pay.  - `004`: Cybersource In-App Solution.  - `005`: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \"Masterpass\" in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - `006`: Android Pay.  - `007`: Chase Pay.  - `008`: Samsung Pay.  - `012`: Google Pay.  - `013`: Cybersource P2PE Decryption  - `014`: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `015`: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `027`: Click to Pay.
+     * @param string $paymentSolution Type of digital payment solution for the transaction. Possible Values:   - `visacheckout`: Visa Checkout. This value is required for Visa Checkout transactions. For details, see `payment_solution` field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - `001`: Apple Pay.  - `004`: Cybersource In-App Solution.  - `005`: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - `006`: Android Pay.  - `007`: Chase Pay.  - `008`: Samsung Pay.  - `012`: Google Pay.  - `013`: Cybersource P2PE Decryption  - `014`: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `015`: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `027`: Click to Pay.
      * @return $this
      */
     public function setPaymentSolution($paymentSolution)
@@ -230,6 +236,27 @@ class PtsV2PaymentsPost201ResponseProcessingInformation implements ArrayAccess
     public function setEnhancedDataEnabled($enhancedDataEnabled)
     {
         $this->container['enhancedDataEnabled'] = $enhancedDataEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets captureOptions
+     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions
+     */
+    public function getCaptureOptions()
+    {
+        return $this->container['captureOptions'];
+    }
+
+    /**
+     * Sets captureOptions
+     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions $captureOptions
+     * @return $this
+     */
+    public function setCaptureOptions($captureOptions)
+    {
+        $this->container['captureOptions'] = $captureOptions;
 
         return $this;
     }

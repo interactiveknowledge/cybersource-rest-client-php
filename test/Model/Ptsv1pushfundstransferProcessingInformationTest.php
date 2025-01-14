@@ -89,4 +89,39 @@ class Ptsv1pushfundstransferProcessingInformationTest extends \PHPUnit_Framework
     public function testPropertyPayoutsOptions()
     {
     }
+
+    /**
+     * Test attribute "feeProgramId"
+     */
+    public function testPropertyFeeProgramId()
+    {
+    }
+
+    /**
+     * Test attribute "networkPartnerId"
+     */
+    public function testPropertyNetworkPartnerId()
+    {
+    }
+
+    /**
+     * Test attribute "processingCode"
+     */
+    public function testPropertyProcessingCode()
+    {
+    }
+
+    /**
+     * Test attribute "sharingGroupCode"
+     */
+    public function testPropertySharingGroupCode()
+    {
+    }
+
+    /**
+     * Test attribute "purposeOfPayment"
+     */
+    public function testPropertyPurposeOfPayment()
+    {
+    }
 }

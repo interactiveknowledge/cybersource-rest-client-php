@@ -73,7 +73,9 @@ class CardProcessingConfigCommon implements ArrayAccess
         'subMerchantId' => 'string',
         'subMerchantBusinessName' => 'string',
         'preferCobadgedSecondaryBrand' => 'bool',
-        'merchantDescriptorInformation' => '\CyberSource\Model\CardProcessingConfigCommonMerchantDescriptorInformation'
+        'merchantDescriptorInformation' => '\CyberSource\Model\CardProcessingConfigCommonMerchantDescriptorInformation',
+        'governmentControlled' => 'bool',
+        'dropBillingInfo' => 'bool'
     ];
 
     /**
@@ -101,7 +103,9 @@ class CardProcessingConfigCommon implements ArrayAccess
         'subMerchantId' => null,
         'subMerchantBusinessName' => null,
         'preferCobadgedSecondaryBrand' => null,
-        'merchantDescriptorInformation' => null
+        'merchantDescriptorInformation' => null,
+        'governmentControlled' => null,
+        'dropBillingInfo' => null
     ];
 
     public static function swaggerTypes()
@@ -139,7 +143,9 @@ class CardProcessingConfigCommon implements ArrayAccess
         'subMerchantId' => 'subMerchantId',
         'subMerchantBusinessName' => 'subMerchantBusinessName',
         'preferCobadgedSecondaryBrand' => 'preferCobadgedSecondaryBrand',
-        'merchantDescriptorInformation' => 'merchantDescriptorInformation'
+        'merchantDescriptorInformation' => 'merchantDescriptorInformation',
+        'governmentControlled' => 'governmentControlled',
+        'dropBillingInfo' => 'dropBillingInfo'
     ];
 
 
@@ -168,7 +174,9 @@ class CardProcessingConfigCommon implements ArrayAccess
         'subMerchantId' => 'setSubMerchantId',
         'subMerchantBusinessName' => 'setSubMerchantBusinessName',
         'preferCobadgedSecondaryBrand' => 'setPreferCobadgedSecondaryBrand',
-        'merchantDescriptorInformation' => 'setMerchantDescriptorInformation'
+        'merchantDescriptorInformation' => 'setMerchantDescriptorInformation',
+        'governmentControlled' => 'setGovernmentControlled',
+        'dropBillingInfo' => 'setDropBillingInfo'
     ];
 
 
@@ -197,7 +205,9 @@ class CardProcessingConfigCommon implements ArrayAccess
         'subMerchantId' => 'getSubMerchantId',
         'subMerchantBusinessName' => 'getSubMerchantBusinessName',
         'preferCobadgedSecondaryBrand' => 'getPreferCobadgedSecondaryBrand',
-        'merchantDescriptorInformation' => 'getMerchantDescriptorInformation'
+        'merchantDescriptorInformation' => 'getMerchantDescriptorInformation',
+        'governmentControlled' => 'getGovernmentControlled',
+        'dropBillingInfo' => 'getDropBillingInfo'
     ];
 
     public static function attributeMap()
@@ -215,24 +225,8 @@ class CardProcessingConfigCommon implements ArrayAccess
         return self::$getters;
     }
 
-    const DEFAULT_AUTH_TYPE_CODE_PRE = 'PRE';
-    const DEFAULT_AUTH_TYPE_CODE__FINAL = 'FINAL';
-    const DEFAULT_AUTH_TYPE_CODE_UNDEFINED = 'UNDEFINED';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getDefaultAuthTypeCodeAllowableValues()
-    {
-        return [
-            self::DEFAULT_AUTH_TYPE_CODE_PRE,
-            self::DEFAULT_AUTH_TYPE_CODE__FINAL,
-            self::DEFAULT_AUTH_TYPE_CODE_UNDEFINED,
-        ];
-    }
     
 
     /**
@@ -268,6 +262,8 @@ class CardProcessingConfigCommon implements ArrayAccess
         $this->container['subMerchantBusinessName'] = isset($data['subMerchantBusinessName']) ? $data['subMerchantBusinessName'] : null;
         $this->container['preferCobadgedSecondaryBrand'] = isset($data['preferCobadgedSecondaryBrand']) ? $data['preferCobadgedSecondaryBrand'] : null;
         $this->container['merchantDescriptorInformation'] = isset($data['merchantDescriptorInformation']) ? $data['merchantDescriptorInformation'] : null;
+        $this->container['governmentControlled'] = isset($data['governmentControlled']) ? $data['governmentControlled'] : null;
+        $this->container['dropBillingInfo'] = isset($data['dropBillingInfo']) ? $data['dropBillingInfo'] : null;
     }
 
     /**
@@ -278,14 +274,6 @@ class CardProcessingConfigCommon implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-
-        $allowed_values = $this->getDefaultAuthTypeCodeAllowableValues();
-        if (!in_array($this->container['defaultAuthTypeCode'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'defaultAuthTypeCode', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
 
         return $invalid_properties;
     }
@@ -299,10 +287,6 @@ class CardProcessingConfigCommon implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getDefaultAuthTypeCodeAllowableValues();
-        if (!in_array($this->container['defaultAuthTypeCode'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -360,20 +344,11 @@ class CardProcessingConfigCommon implements ArrayAccess
 
     /**
      * Sets defaultAuthTypeCode
-     * @param string $defaultAuthTypeCode Authorization Finality indicator. Please note that the input can be in small case or capitals but response is in small case as of now. It will be made capitals everywhere in the next version. Applicable for Elavon Americas (elavonamericas), TSYS (tsys), Barclays (barclays2), Streamline (streamline2), Six (six), Barclays HISO (barclayshiso), GPN (gpn), FDI Global (fdiglobal), GPX (gpx), Paymentech Tampa (paymentechtampa), FDC Nashville (smartfdc), VPC and Chase Paymentech Salem (chasepaymentechsalem) processors.  Validation details (for selected processors)...  <table> <thead><tr><th>Processor</th><th>Acceptance Type</th><th>Required</th><th>Default Value</th></tr></thead> <tr><td>Barclays</td><td>cnp, cp, hybrid</td><td>No</td><td>FINAL</td></tr> <tr><td>Barclays HISO</td><td>cnp, cp, hybrid</td><td>Yes</td><td>FINAL</td></tr> </table>
+     * @param string $defaultAuthTypeCode Authorization Finality indicator. Please note that the input can be in small case or capitals but response is in small case as of now. It will be made capitals everywhere in the next version. Applicable for Elavon Americas (elavonamericas), TSYS (tsys), Barclays (barclays2), Streamline (streamline2), Six (six), Barclays HISO (barclayshiso), GPN (gpn), FDI Global (fdiglobal), GPX (gpx), Paymentech Tampa (paymentechtampa), FDC Nashville (smartfdc), VPC and Chase Paymentech Salem (chasepaymentechsalem) processors.  Validation details (for selected processors)...  <table> <thead><tr><th>Processor</th><th>Acceptance Type</th><th>Required</th><th>Default Value</th></tr></thead> <tr><td>Barclays</td><td>cnp, cp, hybrid</td><td>No</td><td>FINAL</td></tr> <tr><td>Barclays HISO</td><td>cnp, cp, hybrid</td><td>Yes</td><td>FINAL</td></tr> </table>   Possible values: - PRE - FINAL - UNDEFINED
      * @return $this
      */
     public function setDefaultAuthTypeCode($defaultAuthTypeCode)
     {
-        $allowed_values = $this->getDefaultAuthTypeCodeAllowableValues();
-        if (!is_null($defaultAuthTypeCode) && !in_array($defaultAuthTypeCode, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'defaultAuthTypeCode', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['defaultAuthTypeCode'] = $defaultAuthTypeCode;
 
         return $this;
@@ -753,6 +728,48 @@ class CardProcessingConfigCommon implements ArrayAccess
     public function setMerchantDescriptorInformation($merchantDescriptorInformation)
     {
         $this->container['merchantDescriptorInformation'] = $merchantDescriptorInformation;
+
+        return $this;
+    }
+
+    /**
+     * Gets governmentControlled
+     * @return bool
+     */
+    public function getGovernmentControlled()
+    {
+        return $this->container['governmentControlled'];
+    }
+
+    /**
+     * Sets governmentControlled
+     * @param bool $governmentControlled Indicates whether the merchant is government controlled. Applicable for VPC processors.
+     * @return $this
+     */
+    public function setGovernmentControlled($governmentControlled)
+    {
+        $this->container['governmentControlled'] = $governmentControlled;
+
+        return $this;
+    }
+
+    /**
+     * Gets dropBillingInfo
+     * @return bool
+     */
+    public function getDropBillingInfo()
+    {
+        return $this->container['dropBillingInfo'];
+    }
+
+    /**
+     * Sets dropBillingInfo
+     * @param bool $dropBillingInfo This field is used to indicate whether the merchant wants to drop the billing information from the request. If this field is set to true, then the billing information will be dropped from the request. If this field is set to false, then the billing information will be sent in the request.
+     * @return $this
+     */
+    public function setDropBillingInfo($dropBillingInfo)
+    {
+        $this->container['dropBillingInfo'] = $dropBillingInfo;
 
         return $this;
     }

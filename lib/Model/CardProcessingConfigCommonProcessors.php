@@ -62,6 +62,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         'terminalId' => 'string',
         'paymentTypes' => 'map[string,\CyberSource\Model\CardProcessingConfigCommonPaymentTypes]',
         'currencies' => 'map[string,\CyberSource\Model\CardProcessingConfigCommonCurrencies1]',
+        'visaAggregatorId' => 'string',
+        'amexAggregatorId' => 'string',
+        'masterCardAggregatorId' => 'string',
         'sicCode' => 'string',
         'allowMultipleBills' => 'bool',
         'allowMerchantDescriptorOverride' => 'bool',
@@ -113,6 +116,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         'terminalId' => null,
         'paymentTypes' => null,
         'currencies' => null,
+        'visaAggregatorId' => null,
+        'amexAggregatorId' => null,
+        'masterCardAggregatorId' => null,
         'sicCode' => null,
         'allowMultipleBills' => null,
         'allowMerchantDescriptorOverride' => null,
@@ -174,6 +180,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         'terminalId' => 'terminalId',
         'paymentTypes' => 'paymentTypes',
         'currencies' => 'currencies',
+        'visaAggregatorId' => 'visaAggregatorId',
+        'amexAggregatorId' => 'amexAggregatorId',
+        'masterCardAggregatorId' => 'masterCardAggregatorId',
         'sicCode' => 'sicCode',
         'allowMultipleBills' => 'allowMultipleBills',
         'allowMerchantDescriptorOverride' => 'allowMerchantDescriptorOverride',
@@ -226,6 +235,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         'terminalId' => 'setTerminalId',
         'paymentTypes' => 'setPaymentTypes',
         'currencies' => 'setCurrencies',
+        'visaAggregatorId' => 'setVisaAggregatorId',
+        'amexAggregatorId' => 'setAmexAggregatorId',
+        'masterCardAggregatorId' => 'setMasterCardAggregatorId',
         'sicCode' => 'setSicCode',
         'allowMultipleBills' => 'setAllowMultipleBills',
         'allowMerchantDescriptorOverride' => 'setAllowMerchantDescriptorOverride',
@@ -278,6 +290,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         'terminalId' => 'getTerminalId',
         'paymentTypes' => 'getPaymentTypes',
         'currencies' => 'getCurrencies',
+        'visaAggregatorId' => 'getVisaAggregatorId',
+        'amexAggregatorId' => 'getAmexAggregatorId',
+        'masterCardAggregatorId' => 'getMasterCardAggregatorId',
         'sicCode' => 'getSicCode',
         'allowMultipleBills' => 'getAllowMultipleBills',
         'allowMerchantDescriptorOverride' => 'getAllowMerchantDescriptorOverride',
@@ -330,40 +345,8 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         return self::$getters;
     }
 
-    const INDUSTRY_CODE__0 = '0';
-    const INDUSTRY_CODE_A = 'A';
-    const INDUSTRY_CODE_B = 'B';
-    const INDUSTRY_CODE_D = 'D';
-    const INDUSTRY_CODE_F = 'F';
-    const INDUSTRY_CODE_G = 'G';
-    const INDUSTRY_CODE_H = 'H';
-    const INDUSTRY_CODE_L = 'L';
-    const INDUSTRY_CODE_O = 'O';
-    const INDUSTRY_CODE_P = 'P';
-    const INDUSTRY_CODE_R = 'R';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getIndustryCodeAllowableValues()
-    {
-        return [
-            self::INDUSTRY_CODE__0,
-            self::INDUSTRY_CODE_A,
-            self::INDUSTRY_CODE_B,
-            self::INDUSTRY_CODE_D,
-            self::INDUSTRY_CODE_F,
-            self::INDUSTRY_CODE_G,
-            self::INDUSTRY_CODE_H,
-            self::INDUSTRY_CODE_L,
-            self::INDUSTRY_CODE_O,
-            self::INDUSTRY_CODE_P,
-            self::INDUSTRY_CODE_R,
-        ];
-    }
     
 
     /**
@@ -387,6 +370,9 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         $this->container['terminalId'] = isset($data['terminalId']) ? $data['terminalId'] : null;
         $this->container['paymentTypes'] = isset($data['paymentTypes']) ? $data['paymentTypes'] : null;
         $this->container['currencies'] = isset($data['currencies']) ? $data['currencies'] : null;
+        $this->container['visaAggregatorId'] = isset($data['visaAggregatorId']) ? $data['visaAggregatorId'] : null;
+        $this->container['amexAggregatorId'] = isset($data['amexAggregatorId']) ? $data['amexAggregatorId'] : null;
+        $this->container['masterCardAggregatorId'] = isset($data['masterCardAggregatorId']) ? $data['masterCardAggregatorId'] : null;
         $this->container['sicCode'] = isset($data['sicCode']) ? $data['sicCode'] : null;
         $this->container['allowMultipleBills'] = isset($data['allowMultipleBills']) ? $data['allowMultipleBills'] : null;
         $this->container['allowMerchantDescriptorOverride'] = isset($data['allowMerchantDescriptorOverride']) ? $data['allowMerchantDescriptorOverride'] : null;
@@ -436,14 +422,6 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
         if ($this->container['merchantId'] === null) {
             $invalid_properties[] = "'merchantId' can't be null";
         }
-        $allowed_values = $this->getIndustryCodeAllowableValues();
-        if (!in_array($this->container['industryCode'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'industryCode', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -457,10 +435,6 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
     {
 
         if ($this->container['merchantId'] === null) {
-            return false;
-        }
-        $allowed_values = $this->getIndustryCodeAllowableValues();
-        if (!in_array($this->container['industryCode'], $allowed_values)) {
             return false;
         }
         return true;
@@ -652,6 +626,69 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
     public function setCurrencies($currencies)
     {
         $this->container['currencies'] = $currencies;
+
+        return $this;
+    }
+
+    /**
+     * Gets visaAggregatorId
+     * @return string
+     */
+    public function getVisaAggregatorId()
+    {
+        return $this->container['visaAggregatorId'];
+    }
+
+    /**
+     * Sets visaAggregatorId
+     * @param string $visaAggregatorId This field is used as aggregator Id when Visa payment type is selected
+     * @return $this
+     */
+    public function setVisaAggregatorId($visaAggregatorId)
+    {
+        $this->container['visaAggregatorId'] = $visaAggregatorId;
+
+        return $this;
+    }
+
+    /**
+     * Gets amexAggregatorId
+     * @return string
+     */
+    public function getAmexAggregatorId()
+    {
+        return $this->container['amexAggregatorId'];
+    }
+
+    /**
+     * Sets amexAggregatorId
+     * @param string $amexAggregatorId This field is used as aggregator Id when Amex payment type is selected
+     * @return $this
+     */
+    public function setAmexAggregatorId($amexAggregatorId)
+    {
+        $this->container['amexAggregatorId'] = $amexAggregatorId;
+
+        return $this;
+    }
+
+    /**
+     * Gets masterCardAggregatorId
+     * @return string
+     */
+    public function getMasterCardAggregatorId()
+    {
+        return $this->container['masterCardAggregatorId'];
+    }
+
+    /**
+     * Sets masterCardAggregatorId
+     * @param string $masterCardAggregatorId This field is used as aggregator Id when Master Card payment type is selected
+     * @return $this
+     */
+    public function setMasterCardAggregatorId($masterCardAggregatorId)
+    {
+        $this->container['masterCardAggregatorId'] = $masterCardAggregatorId;
 
         return $this;
     }
@@ -1024,20 +1061,11 @@ class CardProcessingConfigCommonProcessors implements ArrayAccess
 
     /**
      * Sets industryCode
-     * @param string $industryCode Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: `0` – unknown or unsure `A` – auto rental (EMV supported) `B` – bank/financial institution (EMV supported) `D` – direct marketing `F` – food/restaurant (EMV supported) `G` – grocery store/super market (EMV supported) `H` – hotel (EMV supported) `L` – limited amount terminal (EMV supported) `O` – oil company/automated fueling system (EMV supported) `P` – passenger transport (EMV supported) `R` – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors.
+     * @param string $industryCode Field used to identify the industry type of the merchant submitting the authorization request.  Valid values: `0` – unknown or unsure `A` – auto rental (EMV supported) `B` – bank/financial institution (EMV supported) `D` – direct marketing `F` – food/restaurant (EMV supported) `G` – grocery store/super market (EMV supported) `H` – hotel (EMV supported) `L` – limited amount terminal (EMV supported) `O` – oil company/automated fueling system (EMV supported) `P` – passenger transport (EMV supported) `R` – retail (EMV supported) Applicable for TSYS (tsys), RUPAY and Elavon Americas (elavonamericas) processors.   Possible values: - 0 - A - B - D - F - G - H - L - O - P - R
      * @return $this
      */
     public function setIndustryCode($industryCode)
     {
-        $allowed_values = $this->getIndustryCodeAllowableValues();
-        if (!is_null($industryCode) && !in_array($industryCode, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'industryCode', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['industryCode'] = $industryCode;
 
         return $this;

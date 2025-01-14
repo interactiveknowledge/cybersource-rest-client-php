@@ -154,7 +154,7 @@ class ReportSubscriptionsApi
         $sdkTracker = new \CyberSource\Utilities\Tracking\SdkTracker();
         $modelClassLocation = explode('\\', '\CyberSource\Model\PredefinedSubscriptionRequestBean');
 
-        $_tempBody = $sdkTracker->insertDeveloperIdTracker($_tempBody, end($modelClassLocation), $this->apiClient->merchantConfig->getRunEnvironment());
+        $_tempBody = $sdkTracker->insertDeveloperIdTracker($_tempBody, end($modelClassLocation), $this->apiClient->merchantConfig->getRunEnvironment(), $this->apiClient->merchantConfig->getDefaultDeveloperId());
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -195,7 +195,7 @@ class ReportSubscriptionsApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\InlineResponse4004', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\InlineResponse4005', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -266,7 +266,7 @@ class ReportSubscriptionsApi
         $sdkTracker = new \CyberSource\Utilities\Tracking\SdkTracker();
         $modelClassLocation = explode('\\', '\CyberSource\Model\CreateReportSubscriptionRequest');
 
-        $_tempBody = $sdkTracker->insertDeveloperIdTracker($_tempBody, end($modelClassLocation), $this->apiClient->merchantConfig->getRunEnvironment());
+        $_tempBody = $sdkTracker->insertDeveloperIdTracker($_tempBody, end($modelClassLocation), $this->apiClient->merchantConfig->getRunEnvironment(), $this->apiClient->merchantConfig->getDefaultDeveloperId());
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -307,7 +307,7 @@ class ReportSubscriptionsApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\InlineResponse4004', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\InlineResponse4005', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

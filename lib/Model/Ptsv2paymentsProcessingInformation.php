@@ -68,7 +68,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'purchaseLevel' => 'string',
         'transactionTimeout' => 'int',
         'intentsId' => 'string',
-        'paymentId' => 'string',
         'reportGroup' => 'string',
         'visaCheckoutId' => 'string',
         'industryDataType' => 'string',
@@ -89,7 +88,9 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'timeout' => 'int',
         'isReturnAuthRecordEnabled' => 'bool',
         'networkPartnerId' => 'string',
-        'paymentType' => 'string'
+        'paymentType' => 'string',
+        'enablerId' => 'string',
+        'processingInstruction' => 'string'
     ];
 
     /**
@@ -112,7 +113,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'purchaseLevel' => null,
         'transactionTimeout' => null,
         'intentsId' => null,
-        'paymentId' => null,
         'reportGroup' => null,
         'visaCheckoutId' => null,
         'industryDataType' => null,
@@ -133,7 +133,9 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'timeout' => null,
         'isReturnAuthRecordEnabled' => null,
         'networkPartnerId' => null,
-        'paymentType' => null
+        'paymentType' => null,
+        'enablerId' => null,
+        'processingInstruction' => null
     ];
 
     public static function swaggerTypes()
@@ -166,7 +168,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'purchaseLevel' => 'purchaseLevel',
         'transactionTimeout' => 'transactionTimeout',
         'intentsId' => 'intentsId',
-        'paymentId' => 'paymentId',
         'reportGroup' => 'reportGroup',
         'visaCheckoutId' => 'visaCheckoutId',
         'industryDataType' => 'industryDataType',
@@ -187,7 +188,9 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'timeout' => 'timeout',
         'isReturnAuthRecordEnabled' => 'isReturnAuthRecordEnabled',
         'networkPartnerId' => 'networkPartnerId',
-        'paymentType' => 'paymentType'
+        'paymentType' => 'paymentType',
+        'enablerId' => 'enablerId',
+        'processingInstruction' => 'processingInstruction'
     ];
 
 
@@ -211,7 +214,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'purchaseLevel' => 'setPurchaseLevel',
         'transactionTimeout' => 'setTransactionTimeout',
         'intentsId' => 'setIntentsId',
-        'paymentId' => 'setPaymentId',
         'reportGroup' => 'setReportGroup',
         'visaCheckoutId' => 'setVisaCheckoutId',
         'industryDataType' => 'setIndustryDataType',
@@ -232,7 +234,9 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'timeout' => 'setTimeout',
         'isReturnAuthRecordEnabled' => 'setIsReturnAuthRecordEnabled',
         'networkPartnerId' => 'setNetworkPartnerId',
-        'paymentType' => 'setPaymentType'
+        'paymentType' => 'setPaymentType',
+        'enablerId' => 'setEnablerId',
+        'processingInstruction' => 'setProcessingInstruction'
     ];
 
 
@@ -256,7 +260,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'purchaseLevel' => 'getPurchaseLevel',
         'transactionTimeout' => 'getTransactionTimeout',
         'intentsId' => 'getIntentsId',
-        'paymentId' => 'getPaymentId',
         'reportGroup' => 'getReportGroup',
         'visaCheckoutId' => 'getVisaCheckoutId',
         'industryDataType' => 'getIndustryDataType',
@@ -277,7 +280,9 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         'timeout' => 'getTimeout',
         'isReturnAuthRecordEnabled' => 'getIsReturnAuthRecordEnabled',
         'networkPartnerId' => 'getNetworkPartnerId',
-        'paymentType' => 'getPaymentType'
+        'paymentType' => 'getPaymentType',
+        'enablerId' => 'getEnablerId',
+        'processingInstruction' => 'getProcessingInstruction'
     ];
 
     public static function attributeMap()
@@ -326,7 +331,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         $this->container['purchaseLevel'] = isset($data['purchaseLevel']) ? $data['purchaseLevel'] : null;
         $this->container['transactionTimeout'] = isset($data['transactionTimeout']) ? $data['transactionTimeout'] : null;
         $this->container['intentsId'] = isset($data['intentsId']) ? $data['intentsId'] : null;
-        $this->container['paymentId'] = isset($data['paymentId']) ? $data['paymentId'] : null;
         $this->container['reportGroup'] = isset($data['reportGroup']) ? $data['reportGroup'] : null;
         $this->container['visaCheckoutId'] = isset($data['visaCheckoutId']) ? $data['visaCheckoutId'] : null;
         $this->container['industryDataType'] = isset($data['industryDataType']) ? $data['industryDataType'] : null;
@@ -348,6 +352,8 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
         $this->container['isReturnAuthRecordEnabled'] = isset($data['isReturnAuthRecordEnabled']) ? $data['isReturnAuthRecordEnabled'] : null;
         $this->container['networkPartnerId'] = isset($data['networkPartnerId']) ? $data['networkPartnerId'] : null;
         $this->container['paymentType'] = isset($data['paymentType']) ? $data['paymentType'] : null;
+        $this->container['enablerId'] = isset($data['enablerId']) ? $data['enablerId'] : null;
+        $this->container['processingInstruction'] = isset($data['processingInstruction']) ? $data['processingInstruction'] : null;
     }
 
     /**
@@ -386,7 +392,7 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
 
     /**
      * Sets actionList
-     * @param string[] $actionList Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - `DECISION_SKIP`: Use this when you want to skip Decision Manager service(s).   - `TOKEN_CREATE`: Use this when you want to create a token from the card/bank data in your payment request.   - `CONSUMER_AUTHENTICATION`: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - `VALIDATE_CONSUMER_AUTHENTICATION`: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - `AP_INITIATE`: Use this when Alternative Payment Initiate service is requested.   - `WATCHLIST_SCREENING` : Use this when you want to call Watchlist Screening service.   - `AP_SALE` : Use this when Alternative Payment Sale service is requested.    - `AP_AUTH` : Use this when Alternative Payment Authorize service is requested.
+     * @param string[] $actionList Array of actions (one or more) to be included in the payment to invoke bundled services along with payment.  Possible values are one or more of follows:   - `DECISION_SKIP`: Use this when you want to skip Decision Manager service(s).   - `TOKEN_CREATE`: Use this when you want to create a token from the card/bank data in your payment request.   - `CONSUMER_AUTHENTICATION`: Use this when you want to check if a card is enrolled in Payer Authentication along with your payment request.   - `VALIDATE_CONSUMER_AUTHENTICATION`: Use this after you acquire a Payer Authentication result that needs to be included for your payment request.    - `AP_INITIATE`: Use this when Alternative Payment Initiate service is requested.   - `WATCHLIST_SCREENING` : Use this when you want to call Watchlist Screening service.   - `AP_SALE` : Use this when Alternative Payment Sale service is requested.    - `AP_AUTH` : Use this when Alternative Payment Authorize service is requested.   - `AP_REAUTH` : Use this when Alternative Payment Reauthorize service is requested.
      * @return $this
      */
     public function setActionList($actionList)
@@ -512,7 +518,7 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
 
     /**
      * Sets businessApplicationId
-     * @param string $businessApplicationId Payouts transaction type. Required for OCT transactions. This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. **Note** When the request includes this field, this value overrides the information in your CyberSource account.
+     * @param string $businessApplicationId Required for AFT and OCT transactions.  Given below is a list of all the BAI values available. However, the processors may support only few specific BAI values.  - AA : Account-to-account  - BB : Supplier Payments - BI : Bank-Initiated P2P Money Transfer - BP : Non-Card Bill Pay/Bill Pay - CD : Cash Deposit - CP : Credit card Bill Payment - FD : Funds disbursement  - FT : Funds transfer - GD : Government Disbursement - GP : Gambling payout (non-online gambling) - LO : Loyalty credits and rebates - MD : Merchant Settlement - OG : Online Gambling Payout - PD : Payroll and pension disbursement - PP : Person-to-Person or Peer-to-Peer - TU : Top up, prepaid load - WT : Digital wallet
      * @return $this
      */
     public function setBusinessApplicationId($businessApplicationId)
@@ -575,7 +581,7 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
 
     /**
      * Sets paymentSolution
-     * @param string $paymentSolution Type of digital payment solution for the transaction. Possible Values:   - `visacheckout`: Visa Checkout. This value is required for Visa Checkout transactions. For details, see `payment_solution` field description in [Visa Checkout Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/VCO_SCMP_API/html/)  - `001`: Apple Pay.  - `004`: Cybersource In-App Solution.  - `005`: Masterpass. This value is required for Masterpass transactions on OmniPay Direct. For details, see \"Masterpass\" in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/)  - `006`: Android Pay.  - `007`: Chase Pay.  - `008`: Samsung Pay.  - `012`: Google Pay.  - `013`: Cybersource P2PE Decryption  - `014`: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `015`: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `027`: Click to Pay.
+     * @param string $paymentSolution Type of digital payment solution for the transaction. Possible Values:   - `visacheckout`: Visa Checkout. This value is required for Visa Checkout transactions. For details, see `payment_solution` field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - `001`: Apple Pay.  - `004`: Cybersource In-App Solution.  - `005`: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - `006`: Android Pay.  - `007`: Chase Pay.  - `008`: Samsung Pay.  - `012`: Google Pay.  - `013`: Cybersource P2PE Decryption  - `014`: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `015`: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - `027`: Click to Pay.
      * @return $this
      */
     public function setPaymentSolution($paymentSolution)
@@ -686,27 +692,6 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
     public function setIntentsId($intentsId)
     {
         $this->container['intentsId'] = $intentsId;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentId
-     * @return string
-     */
-    public function getPaymentId()
-    {
-        return $this->container['paymentId'];
-    }
-
-    /**
-     * Sets paymentId
-     * @param string $paymentId This field is to accept the id of credit/capture in the body of L1 requests so the type of void can be identified and processed correctly downstream.
-     * @return $this
-     */
-    public function setPaymentId($paymentId)
-    {
-        $this->container['paymentId'] = $paymentId;
 
         return $this;
     }
@@ -1148,6 +1133,48 @@ class Ptsv2paymentsProcessingInformation implements ArrayAccess
     public function setPaymentType($paymentType)
     {
         $this->container['paymentType'] = $paymentType;
+
+        return $this;
+    }
+
+    /**
+     * Gets enablerId
+     * @return string
+     */
+    public function getEnablerId()
+    {
+        return $this->container['enablerId'];
+    }
+
+    /**
+     * Sets enablerId
+     * @param string $enablerId Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers.
+     * @return $this
+     */
+    public function setEnablerId($enablerId)
+    {
+        $this->container['enablerId'] = $enablerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets processingInstruction
+     * @return string
+     */
+    public function getProcessingInstruction()
+    {
+        return $this->container['processingInstruction'];
+    }
+
+    /**
+     * Sets processingInstruction
+     * @param string $processingInstruction The instruction to process an order. - default value: 'NO_INSTRUCTION' - 'ORDER_SAVED_EXPLICITLY'
+     * @return $this
+     */
+    public function setProcessingInstruction($processingInstruction)
+    {
+        $this->container['processingInstruction'] = $processingInstruction;
 
         return $this;
     }

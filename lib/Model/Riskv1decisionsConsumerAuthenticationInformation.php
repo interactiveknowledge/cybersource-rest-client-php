@@ -54,7 +54,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'strongAuthentication' => '\CyberSource\Model\Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication',
-        'authenticationType' => 'string',
         'acsWindowSize' => 'string',
         'alternateAuthenticationData' => 'string',
         'alternateAuthenticationDate' => 'string',
@@ -62,7 +61,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         'authenticationDate' => 'string',
         'authenticationTransactionId' => 'string',
         'transactionFlowIndicator' => 'int',
-        'challengeCancelCode' => 'string',
         'challengeCode' => 'string',
         'challengeStatus' => 'string',
         'customerCardAlias' => 'string',
@@ -103,7 +101,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'strongAuthentication' => null,
-        'authenticationType' => null,
         'acsWindowSize' => null,
         'alternateAuthenticationData' => null,
         'alternateAuthenticationDate' => null,
@@ -111,7 +108,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         'authenticationDate' => null,
         'authenticationTransactionId' => null,
         'transactionFlowIndicator' => null,
-        'challengeCancelCode' => null,
         'challengeCode' => null,
         'challengeStatus' => null,
         'customerCardAlias' => null,
@@ -162,7 +158,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
      */
     protected static $attributeMap = [
         'strongAuthentication' => 'strongAuthentication',
-        'authenticationType' => 'authenticationType',
         'acsWindowSize' => 'acsWindowSize',
         'alternateAuthenticationData' => 'alternateAuthenticationData',
         'alternateAuthenticationDate' => 'alternateAuthenticationDate',
@@ -170,7 +165,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         'authenticationDate' => 'authenticationDate',
         'authenticationTransactionId' => 'authenticationTransactionId',
         'transactionFlowIndicator' => 'transactionFlowIndicator',
-        'challengeCancelCode' => 'challengeCancelCode',
         'challengeCode' => 'challengeCode',
         'challengeStatus' => 'challengeStatus',
         'customerCardAlias' => 'customerCardAlias',
@@ -212,7 +206,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
      */
     protected static $setters = [
         'strongAuthentication' => 'setStrongAuthentication',
-        'authenticationType' => 'setAuthenticationType',
         'acsWindowSize' => 'setAcsWindowSize',
         'alternateAuthenticationData' => 'setAlternateAuthenticationData',
         'alternateAuthenticationDate' => 'setAlternateAuthenticationDate',
@@ -220,7 +213,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         'authenticationDate' => 'setAuthenticationDate',
         'authenticationTransactionId' => 'setAuthenticationTransactionId',
         'transactionFlowIndicator' => 'setTransactionFlowIndicator',
-        'challengeCancelCode' => 'setChallengeCancelCode',
         'challengeCode' => 'setChallengeCode',
         'challengeStatus' => 'setChallengeStatus',
         'customerCardAlias' => 'setCustomerCardAlias',
@@ -262,7 +254,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
      */
     protected static $getters = [
         'strongAuthentication' => 'getStrongAuthentication',
-        'authenticationType' => 'getAuthenticationType',
         'acsWindowSize' => 'getAcsWindowSize',
         'alternateAuthenticationData' => 'getAlternateAuthenticationData',
         'alternateAuthenticationDate' => 'getAlternateAuthenticationDate',
@@ -270,7 +261,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         'authenticationDate' => 'getAuthenticationDate',
         'authenticationTransactionId' => 'getAuthenticationTransactionId',
         'transactionFlowIndicator' => 'getTransactionFlowIndicator',
-        'challengeCancelCode' => 'getChallengeCancelCode',
         'challengeCode' => 'getChallengeCode',
         'challengeStatus' => 'getChallengeStatus',
         'customerCardAlias' => 'getCustomerCardAlias',
@@ -337,7 +327,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['strongAuthentication'] = isset($data['strongAuthentication']) ? $data['strongAuthentication'] : null;
-        $this->container['authenticationType'] = isset($data['authenticationType']) ? $data['authenticationType'] : null;
         $this->container['acsWindowSize'] = isset($data['acsWindowSize']) ? $data['acsWindowSize'] : null;
         $this->container['alternateAuthenticationData'] = isset($data['alternateAuthenticationData']) ? $data['alternateAuthenticationData'] : null;
         $this->container['alternateAuthenticationDate'] = isset($data['alternateAuthenticationDate']) ? $data['alternateAuthenticationDate'] : null;
@@ -345,7 +334,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
         $this->container['authenticationDate'] = isset($data['authenticationDate']) ? $data['authenticationDate'] : null;
         $this->container['authenticationTransactionId'] = isset($data['authenticationTransactionId']) ? $data['authenticationTransactionId'] : null;
         $this->container['transactionFlowIndicator'] = isset($data['transactionFlowIndicator']) ? $data['transactionFlowIndicator'] : null;
-        $this->container['challengeCancelCode'] = isset($data['challengeCancelCode']) ? $data['challengeCancelCode'] : null;
         $this->container['challengeCode'] = isset($data['challengeCode']) ? $data['challengeCode'] : null;
         $this->container['challengeStatus'] = isset($data['challengeStatus']) ? $data['challengeStatus'] : null;
         $this->container['customerCardAlias'] = isset($data['customerCardAlias']) ? $data['customerCardAlias'] : null;
@@ -389,6 +377,9 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['deviceChannel'] === null) {
+            $invalid_properties[] = "'deviceChannel' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -401,6 +392,9 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['deviceChannel'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -422,27 +416,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
     public function setStrongAuthentication($strongAuthentication)
     {
         $this->container['strongAuthentication'] = $strongAuthentication;
-
-        return $this;
-    }
-
-    /**
-     * Gets authenticationType
-     * @return string
-     */
-    public function getAuthenticationType()
-    {
-        return $this->container['authenticationType'];
-    }
-
-    /**
-     * Sets authenticationType
-     * @param string $authenticationType Indicates the type of authentication that will be used to challenge the card holder.  Possible Values:  01 - Static  02 - Dynamic  03 - OOB (Out of Band)  04 - Decoupled  20 - OTP hosted at merchant end. (Rupay S2S flow) **NOTE**:  EMV 3-D Secure version 2.1.0 supports values 01-03.  Version 2.2.0 supports values 01-04.  Decoupled authentication is not supported at this time.
-     * @return $this
-     */
-    public function setAuthenticationType($authenticationType)
-    {
-        $this->container['authenticationType'] = $authenticationType;
 
         return $this;
     }
@@ -590,27 +563,6 @@ class Riskv1decisionsConsumerAuthenticationInformation implements ArrayAccess
     public function setTransactionFlowIndicator($transactionFlowIndicator)
     {
         $this->container['transactionFlowIndicator'] = $transactionFlowIndicator;
-
-        return $this;
-    }
-
-    /**
-     * Gets challengeCancelCode
-     * @return string
-     */
-    public function getChallengeCancelCode()
-    {
-        return $this->container['challengeCancelCode'];
-    }
-
-    /**
-     * Sets challengeCancelCode
-     * @param string $challengeCancelCode An indicator as to why the transaction was canceled. Possible Values:  - `01`: Cardholder selected Cancel. - `02`: Reserved for future EMVCo use (values invalid until defined by EMVCo). - `03`: Transaction Timed Out—Decoupled Authentication - `04`: Transaction timed out at ACS—other timeouts - `05`: Transaction Timed out at ACS - First CReq not received by ACS - `06`: Transaction Error - `07`: Unknown - `08`: Transaction Timed Out at SDK
-     * @return $this
-     */
-    public function setChallengeCancelCode($challengeCancelCode)
-    {
-        $this->container['challengeCancelCode'] = $challengeCancelCode;
 
         return $this;
     }
